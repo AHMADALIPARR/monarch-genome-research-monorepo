@@ -1,5 +1,7 @@
 :- module(monarch_claims, [load_corpus/1, story/16, claim/7, source_cluster/2,
-                            shared_source/2, possible_corrob/2, claim_needs_review/2]).
+                            shared_source/2, possible_corrob/2, claim_needs_review/2,
+                            export_claims/1, export_source_clusters/1, export_shared_sources/1,
+                            run/0]).
 :- use_module(library(csv)).
 :- use_module(library(lists)).
 :- use_module(library(apply)).
@@ -69,3 +71,25 @@ claim_needs_review(Id, individual_source_verification) :-
     ; sub_atom(Evidence, _, _, _, 'contested')
     ; sub_atom(Evidence, _, _, _, 'First-person')
     ).
+
+export_claims(Path) :-
+    setup_call_cleanup(open(Path,write,Out,[encoding(utf8)]),
+      (csv_write_stream(Out,[row(claim_id,story_id,claim_type,claim_text,evidence_status,source_url,epistemic_status)],[]),
+       forall(claim(C,S,K,T,E,U,F),csv_write_stream(Out,[row(C,S,K,T,E,U,F)],[]))),close(Out)).
+
+export_source_clusters(Path) :-
+    setup_call_cleanup(open(Path,write,Out,[encoding(utf8)]),
+      (csv_write_stream(Out,[row(source_url,story_count,story_ids)],[]),
+       forall(source_cluster(U,Ids),
+         (length(Ids,N),atomic_list_concat(Ids,';',Joined),csv_write_stream(Out,[row(U,N,Joined)],[])))),close(Out)).
+
+export_shared_sources(Path) :-
+    setup_call_cleanup(open(Path,write,Out,[encoding(utf8)]),
+      (csv_write_stream(Out,[row(story_a,story_b,relationship,independent_corroboration)],[]),
+       forall(shared_source(A,B),csv_write_stream(Out,[row(A,B,same_source,no)],[]))),close(Out)).
+
+run :-
+    load_corpus('monarch_mkultra_stories_seed.csv'),
+    export_claims('monarch_claims.csv'),
+    export_source_clusters('monarch_source_clusters.csv'),
+    export_shared_sources('monarch_shared_sources.csv').

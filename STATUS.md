@@ -20,8 +20,10 @@ reported as SKIP, not hidden.
 
 - **C — torus simulation.** `gcc 13.3.0`, `-O2 -std=c11 -Wall -Wextra`.
   `packages/torus-chronology/src/monarch_torus_sim.c` compiles and runs,
-  exit 0, and prints its CSV table (header plus baseline / modeled_impact /
-  modeled_recovery rows).
+  exit 0, prints its PASS line, and writes `torus_synthetic_trace.csv`
+  and `torus_entropy_metrics.csv`. Both regenerated files diff
+  byte-identically against the committed records in
+  `packages/torus-chronology/data/`.
 - **Lean 4 — 3 standalone files.** `lean` 4.12.0 (elan). The three files
   typecheck with 0 errors and import nothing, so plain `lean` suffices
   (no Mathlib project needed):
@@ -66,14 +68,38 @@ reported as SKIP, not hidden.
   makes `sampleSize` OPTIONAL (one study has none), returning 4 rows.
   The other 26 SPARQL queries were already correct against their
   ontologies and were not changed.
-- **Claims export predicates.** `packages/claims-corpus/src/monarch_claims.pl`
-  declared `export_claims/1`, `export_source_clusters/1`,
-  `export_shared_sources/1`, and `run/0` in its export list, but none of
-  them is defined anywhere in the repo and nothing calls them. They were
-  removed from the export list. The remaining exports
-  (`load_corpus/1`, `story/16`, `claim/7`, `source_cluster/2`,
-  `shared_source/2`, `possible_corrob/2`, `claim_needs_review/2`) are all
-  defined and the file consult-loads with no ERROR.
+- **Claims export predicates restored.** The GitHub copy of
+  `packages/claims-corpus/src/monarch_claims.pl` had the export
+  predicates (`export_claims/1`, `export_source_clusters/1`,
+  `export_shared_sources/1`, `run/0`) declared but their definitions
+  stripped out. The owner's zips carry the complete 95-line file with
+  the definitions. It is restored verbatim; `run/0` loads the seed CSV
+  and writes `monarch_claims.csv`, `monarch_source_clusters.csv`, and
+  `monarch_shared_sources.csv`. Loading the restored seed now yields
+  22 stories.
+- **Torus sim restored to the complete version.** The GitHub copy of
+  `packages/torus-chronology/src/monarch_torus_sim.c` was a 46-line
+  variant that printed the metrics to stdout, hardcoded the throat
+  fraction to 0.0, and wrote the trace in a different format. The
+  owner's zips carry the complete 53-line version, which writes
+  `torus_synthetic_trace.csv` and `torus_entropy_metrics.csv` as files
+  and asserts the Shannon bound. It is restored verbatim. Running it
+  regenerates both recorded files byte-identically (verified by diff),
+  and `make check` diffs the regenerated outputs against the committed
+  records.
+- **Two truncated CSVs restored.** The GitHub copy of
+  `packages/claims-corpus/data/monarch_mkultra_stories_seed.csv` had
+  only 4 lines (3 stories); the zips carry the full 23 lines (22
+  stories, S001–S022, matching the 22 historical facts). It is restored.
+  `packages/recovery/data/monarch_deprogramming_recovery.csv` had 15
+  lines; the zips carry 18. It is restored.
+- **Recorded trace committed as data.**
+  `packages/torus-chronology/data/torus_synthetic_trace.csv` (36 synthetic
+  time steps) is the sim's recorded output, referenced by the v4 README.
+  It is committed as data. The `.gitignore` entry for the trace is now
+  anchored to the repo root only, so a stray run from the root stays
+  ignored while the data copy stays tracked. `make check` runs the sim
+  from /tmp.
 - **Plunit import.** `packages/post-recovery/src/test_monarch_post_recovery.pl`
   uses `begin_tests`/`end_tests`/`run_tests` but never imported the plunit
   library, so the suite could not run at all. `:- use_module(library(plunit)).`
@@ -92,10 +118,6 @@ reported as SKIP, not hidden.
   `packages/hermetic-graph/bqn/HermeticGraph.bqn` was not executed.
   `make check` reports it as SKIP. The Lean counterpart
   (`HermeticGraphBridge.lean`) typechecks.
-- **`torus_synthetic_trace.csv` is a build artifact.** The sim writes it
-  to the working directory when run. It is gitignored; run the sim to
-  regenerate it. The committed `torus_entropy_metrics.csv` is the
-  recorded per-phase summary.
 
 ## Toolchain versions used for the verification above
 

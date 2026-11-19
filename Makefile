@@ -35,14 +35,18 @@ PL_FILES := packages/claims-corpus/src/monarch_claims.pl \
 check: check-c check-lean check-prolog check-python check-bqn
 	@echo "== make check: all runnable checks finished (SKIP lines above mark absent tools) =="
 
-# C: the torus simulation compiles and runs, and prints its CSV table.
-# It also writes torus_synthetic_trace.csv to the working directory,
-# so run it from /tmp to keep the repo clean.
+# C: the torus simulation compiles and runs, and writes its two output
+# files (the per-step trace and the per-phase metrics). It writes them to
+# the working directory, so run it from /tmp and diff the metrics against
+# the committed record to keep the repo clean.
 check-c:
 	@if [ -z "$(CC)" ]; then echo "SKIP check-c: no C compiler (cc/gcc) on PATH"; else \
 	  $(CC) -O2 -std=c11 -Wall -Wextra -o /tmp/torus_sim_check packages/torus-chronology/src/monarch_torus_sim.c -lm && \
-	  (cd /tmp && /tmp/torus_sim_check) | head -1 | grep -q '^phase,observations' && \
-	  echo "PASS check-c: torus_sim compiles and runs"; \
+	  (cd /tmp && /tmp/torus_sim_check) | grep -q '^PASS: histogram entropy' && \
+	  test -f /tmp/torus_synthetic_trace.csv && test -f /tmp/torus_entropy_metrics.csv && \
+	  diff -q /tmp/torus_entropy_metrics.csv packages/torus-chronology/data/torus_entropy_metrics.csv > /dev/null && \
+	  diff -q /tmp/torus_synthetic_trace.csv packages/torus-chronology/data/torus_synthetic_trace.csv > /dev/null && \
+	  echo "PASS check-c: torus_sim compiles, runs, and regenerates the recorded trace + metrics"; \
 	fi
 
 # Lean 4: the three standalone files typecheck. They import nothing,

@@ -1,6 +1,6 @@
 # Build and tool outputs
 torus_sim
-torus_synthetic_trace.csv
+/torus_synthetic_trace.csv
 *.o
 *.olean
 *.ilean
