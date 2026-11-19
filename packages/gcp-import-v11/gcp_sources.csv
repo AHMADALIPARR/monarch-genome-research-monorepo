@@ -1,0 +1,5 @@
+source_id,project,data_type,url,access_status
+GCP1_1999_01_01,GCP original,15_minute_historical_network_aggregate,https://www.global-mind.org/data/eggsummary/1999/summary-1999-01-01.html,transcribed_32_records
+GCP1_RAW,GCP original,per_second_200_bit_trials,https://www.global-mind.org/extract.html,archive_form_available_not_downloaded
+GCP2_DOWNLOAD,GCP 2.0,network_and_device_coherence,https://gcp2.net/data-results/data-download,download_form_available_not_downloaded
+GCP1_FORMAT,GCP original,basket_format_description,https://www.global-mind.org/data/eggsummary/,reference_only
