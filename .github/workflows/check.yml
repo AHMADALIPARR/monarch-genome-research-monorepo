@@ -23,11 +23,8 @@ jobs:
 
       - name: Install Lean 4.12.0 (elan)
         run: |
-          curl -sSf https://release.lean-lang.org/lean4/v4.12.0/lean-4.12.0-linux.tar.zst -o /tmp/lean.tar.zst || true
-          curl -sSfL https://github.com/leanprover/elan/releases/download/v3.1.1/elan-x86_64-unknown-linux-gnu.tar.gz -o /tmp/elan.tar.gz
-          mkdir -p "$HOME/.elan/bin"
-          tar -xzf /tmp/elan.tar.gz -C "$HOME/.elan/bin" --strip-components=1 elan-x86_64-unknown-linux-gnu/elan-init
-          "$HOME/.elan/bin/elan-init" -y --default-toolchain leanprover/lean4:v4.12.0
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          sh /tmp/elan-init.sh -y --default-toolchain leanprover/lean4:v4.12.0
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
 
       - name: Run the repo checks
