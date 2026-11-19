@@ -1,0 +1,4 @@
+phase,observations,torus_occupancy_entropy_bits,mean_torus_distance_from_baseline,throat_region_fraction,classification
+baseline,12,1.280672130,0.280091582,0.000000000,synthetic_model_only
+modeled_impact,12,1.500000000,3.499643971,0.250000000,synthetic_model_only
+modeled_recovery,12,1.918295834,1.581926921,0.000000000,synthetic_model_only
