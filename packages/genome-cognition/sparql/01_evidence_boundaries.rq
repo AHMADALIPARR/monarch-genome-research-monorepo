@@ -1,0 +1,7 @@
+PREFIX gc: <https://example.org/genome-cognition#>
+SELECT ?hypothesis ?status ?evidenceStatus WHERE {
+  ?hypothesis a gc:HypothesizedInfluence ;
+              gc:hasEvidenceStatus ?status ;
+              gc:supportedBy ?evidence .
+  ?evidence gc:hasEvidenceStatus ?evidenceStatus .
+}
