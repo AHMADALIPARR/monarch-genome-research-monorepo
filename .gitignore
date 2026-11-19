@@ -1,0 +1,23 @@
+# Build and tool outputs
+torus_sim
+torus_synthetic_trace.csv
+*.o
+*.olean
+*.ilean
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.lake/
+lake-packages/
+
+# Editor and OS files
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/
+
+# Local environment
+.env

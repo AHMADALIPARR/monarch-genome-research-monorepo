@@ -1,3 +1,4 @@
+:- use_module(library(plunit)).
 :- begin_tests(post_recovery).
 :- use_module(monarch_post_recovery).
 

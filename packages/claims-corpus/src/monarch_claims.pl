@@ -1,7 +1,5 @@
 :- module(monarch_claims, [load_corpus/1, story/16, claim/7, source_cluster/2,
-                            shared_source/2, possible_corrob/2, claim_needs_review/2,
-                            export_claims/1, export_source_clusters/1, export_shared_sources/1,
-                            run/0]).
+                            shared_source/2, possible_corrob/2, claim_needs_review/2]).
 :- use_module(library(csv)).
 :- use_module(library(lists)).
 :- use_module(library(apply)).

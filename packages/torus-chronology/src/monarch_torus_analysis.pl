@@ -1,5 +1,5 @@
 :- module(monarch_torus_analysis,
- [historical_case/5, case_effect/3, reported_association/3,
+ [reported_association/3,
   source_supported/1, correlation_ready/1, recovery_is_not_proof/1,
   torus_angle/3, torus_distance/5, entropy_bits/2,
   mixture_entropy/4, entropy_bound/2, example_checks/0]).
