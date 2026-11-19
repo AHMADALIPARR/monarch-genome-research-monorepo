@@ -1,5 +1,7 @@
 # Monarch / Genome Research Monorepo
 
+**This is the single canonical repository.** All research stages (claims corpus through GCP import) live here under `packages/`. Earlier separate repositories created during development should be ignored.
+
 Production monorepo for a provenance-first research pipeline. It moves from historical claims corpora through recovery annotation, post-recovery cognition models, torus geometry, Lean chronology, hermetic graph recursion, a genome-stack SPARQL engine, a genome-cognition bridge, near-death experience study summaries, and a Global Consciousness Project historical aggregate import.
 
 **License:** GNU Affero General Public License v3.0 (see [LICENSE](LICENSE))
