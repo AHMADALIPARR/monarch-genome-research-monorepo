@@ -23,6 +23,65 @@ packages/
 └── gcp-import-v11/         # GCP 15-minute historical aggregate sample + Prolog
 ```
 
+## Installation
+
+Clone the repository and install the runtimes you need. Not every package requires every tool.
+
+```sh
+git clone https://github.com/AHMADALIPARR/monarch-genome-research-monorepo.git
+cd monarch-genome-research-monorepo
+```
+
+### Python (genome-stack, genome-cognition, nde-v10)
+
+Requires Python 3.9+.
+
+```sh
+python3 -m pip install 'rdflib>=7'
+# Optional: run NDE tests
+python3 packages/nde-v10/test_nde.py
+```
+
+### SWI-Prolog (claims-corpus, recovery, post-recovery, torus analysis, nde-v10, gcp-import-v11)
+
+Install SWI-Prolog 9.x from https://www.swi-prolog.org/ or your package manager (`brew install swi-prolog`, `apt install swi-prolog`, etc.).
+
+```sh
+swipl -q -s packages/gcp-import-v11/gcp_observations.pl
+# then at the prompt:
+# ?- well_formed(0).
+```
+
+### Lean 4 + Mathlib (torus-chronology, hermetic-graph, genome-cognition, nde-v10)
+
+Install Lean 4 and elan, then create or use a Mathlib project:
+
+```sh
+# https://leanprover.github.io/lean4/doc/setup.html
+# After setup, from a lake project that depends on Mathlib:
+lake env lean packages/torus-chronology/lean/NewtonPyramidChronology.lean
+lake env lean packages/hermetic-graph/lean/HermeticGraphBridge.lean
+```
+
+### CBQN (hermetic-graph BQN)
+
+Install CBQN from https://github.com/dzaima/CBQN or your package manager.
+
+```sh
+bqn packages/hermetic-graph/bqn/HermeticGraph.bqn
+```
+
+### C compiler (torus simulation)
+
+Any C11 compiler (gcc, clang).
+
+```sh
+cc -O2 -o torus_sim packages/torus-chronology/src/monarch_torus_sim.c -lm
+./torus_sim
+```
+
+Runtime results for SWI-Prolog, Lean, and CBQN are not claimed from the original authoring environment; install the tools above to execute them locally.
+
 ## Pipeline Overview
 
 ### Claims Corpus
@@ -71,8 +130,6 @@ Four source-attributed study summaries (van Lommel 2001, Parnia AWARE I 2014, Pa
 - Hermetic graph: BQN or Lean.
 - Chronology, bridge, NDE Lean: Lean 4 + Mathlib project.
 - NDE tests: `python3 packages/nde-v10/test_nde.py`
-
-SWI-Prolog, Lean, and CBQN were not available in the original authoring environment; runtime results are not claimed except where Python validation was run.
 
 ## What This Pipeline Does Not Claim
 
