@@ -1,0 +1,7 @@
+PREFIX nde: <https://example.org/nde#>
+SELECT ?study ?year ?n ?url WHERE {
+  ?study a nde:Study ;
+         nde:year ?year ;
+         nde:sampleSize ?n ;
+         nde:sourceURL ?url .
+}
