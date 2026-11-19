@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:nde="https://example.org/nde-research#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE004">
+    <rdf:type rdf:resource="https://example.org/nde-research#NDEStudy"/>
+    <rdfs:label>Xu et al.</rdfs:label>
+    <nde:studyYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2023</nde:studyYear>
+    <nde:studyDesign>small observational physiological study</nde:studyDesign>
+    <nde:evidenceClass>study_summary</nde:evidenceClass>
+    <nde:limitation>no direct patient NDE reports linked to measured gamma activity</nde:limitation>
+    <nde:sampleSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</nde:sampleSize>
+    <nde:hasSource rdf:resource="https://example.org/nde-research#NDE004_source"/>
+    <nde:investigates rdf:resource="https://example.org/nde-research#NDE004_event"/>
+    <nde:observes rdf:resource="https://example.org/nde-research#NDE004_finding"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE002">
+    <rdf:type rdf:resource="https://example.org/nde-research#NDEStudy"/>
+    <rdfs:label>Parnia et al. AWARE I</rdfs:label>
+    <nde:studyYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2014</nde:studyYear>
+    <nde:studyDesign>prospective observational study</nde:studyDesign>
+    <nde:evidenceClass>study_summary</nde:evidenceClass>
+    <nde:limitation>different categories of reported awareness; timing and independent verification remain difficult</nde:limitation>
+    <nde:hasSource rdf:resource="https://example.org/nde-research#NDE002_source"/>
+    <nde:investigates rdf:resource="https://example.org/nde-research#NDE002_event"/>
+    <nde:observes rdf:resource="https://example.org/nde-research#NDE002_finding"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE003">
+    <rdf:type rdf:resource="https://example.org/nde-research#NDEStudy"/>
+    <rdfs:label>Parnia et al. AWARE II</rdfs:label>
+    <nde:studyYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2023</nde:studyYear>
+    <nde:studyDesign>multicenter prospective observational study</nde:studyDesign>
+    <nde:evidenceClass>study_summary</nde:evidenceClass>
+    <nde:limitation>EEG observations and recollections do not establish consciousness outside brain</nde:limitation>
+    <nde:sampleSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">567</nde:sampleSize>
+    <nde:hasSource rdf:resource="https://example.org/nde-research#NDE003_source"/>
+    <nde:investigates rdf:resource="https://example.org/nde-research#NDE003_event"/>
+    <nde:observes rdf:resource="https://example.org/nde-research#NDE003_finding"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE002_event">
+    <rdf:type rdf:resource="https://example.org/nde-research#ClinicalEvent"/>
+    <rdfs:label>cardiac-arrest survivors</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE001_finding">
+    <rdf:type rdf:resource="https://example.org/nde-research#ReportedExperience"/>
+    <rdfs:label>near-death experience reports</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE003_event">
+    <rdf:type rdf:resource="https://example.org/nde-research#ClinicalEvent"/>
+    <rdfs:label>in-hospital cardiac arrests</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#studyYear">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE002_source">
+    <rdf:type rdf:resource="https://example.org/nde-research#SourceDocument"/>
+    <nde:sourceURL>https://www.sciencedirect.com/science/article/pii/S0300957214007394</nde:sourceURL>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE001">
+    <rdf:type rdf:resource="https://example.org/nde-research#NDEStudy"/>
+    <rdfs:label>van Lommel et al.</rdfs:label>
+    <nde:studyYear rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2001</nde:studyYear>
+    <nde:studyDesign>prospective observational cohort</nde:studyDesign>
+    <nde:evidenceClass>study_summary</nde:evidenceClass>
+    <nde:limitation>reports among survivors; does not prove nonphysical consciousness</nde:limitation>
+    <nde:sampleSize rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">344</nde:sampleSize>
+    <nde:ndeReports rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</nde:ndeReports>
+    <nde:hasSource rdf:resource="https://example.org/nde-research#NDE001_source"/>
+    <nde:investigates rdf:resource="https://example.org/nde-research#NDE001_event"/>
+    <nde:observes rdf:resource="https://example.org/nde-research#NDE001_finding"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#hasInterpretation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE002_finding">
+    <rdf:type rdf:resource="https://example.org/nde-research#ReportedExperience"/>
+    <rdfs:label>awareness and memories during resuscitation</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#ReportedExperience">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#associatedWith">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#hasSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE003_finding">
+    <rdf:type rdf:resource="https://example.org/nde-research#ReportedExperience"/>
+    <rdfs:label>recalled experience of death and EEG observations</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE001_source">
+    <rdf:type rdf:resource="https://example.org/nde-research#SourceDocument"/>
+    <nde:sourceURL>https://pubmed.ncbi.nlm.nih.gov/11755611/</nde:sourceURL>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#hasCognitiveAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE003_source">
+    <rdf:type rdf:resource="https://example.org/nde-research#SourceDocument"/>
+    <nde:sourceURL>https://pubmed.ncbi.nlm.nih.gov/37423492/</nde:sourceURL>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#CognitiveAssessment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE004_finding">
+    <rdf:type rdf:resource="https://example.org/nde-research#PhysiologicalObservation"/>
+    <rdfs:label>gamma oscillation and connectivity observations</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#PhysiologicalObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#SourceDocument">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#reports">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#limitation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#ClinicalEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE004_event">
+    <rdf:type rdf:resource="https://example.org/nde-research#ClinicalEvent"/>
+    <rdfs:label>dying hospital patients</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE001_event">
+    <rdf:type rdf:resource="https://example.org/nde-research#ClinicalEvent"/>
+    <rdfs:label>resuscitated cardiac-arrest survivors</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#sourceURL">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#stateTime">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#investigates">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#studyDesign">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#stateEntropy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#observes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDEStudy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#InterpretiveHypothesis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#sampleSize">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#statePhase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#ontology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:comment>NDE research extension; not evidence of paranormal mechanisms or genetic causes.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#NDE004_source">
+    <rdf:type rdf:resource="https://example.org/nde-research#SourceDocument"/>
+    <nde:sourceURL>https://doi.org/10.1073/pnas.2216268120</nde:sourceURL>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#ndeReports">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#SyntheticState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#evidenceClass">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/nde-research#measuredBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+</rdf:RDF>

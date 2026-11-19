@@ -1,0 +1,257 @@
+@prefix gs: <https://example.org/genome-stack#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+gs:BiologicalInterpretation a owl:Class .
+
+gs:EvidenceClaim a owl:Class .
+
+gs:Gene a owl:Class ;
+    rdfs:subClassOf gs:DNA .
+
+gs:GenomicLocation a owl:Class .
+
+gs:MappingRecord a owl:Class .
+
+gs:Observation a owl:Class .
+
+gs:ReferenceAssembly a owl:Class .
+
+gs:ReviewDecision a owl:Class .
+
+gs:axiom01 a owl:Axiom ;
+    owl:annotatedProperty gs:usesNuclease ;
+    owl:annotatedSource gs:cleavage01 ;
+    owl:annotatedTarget gs:cas9 ;
+    gs:claimBasis "schematic biological interpretation; not experimental verification" .
+
+gs:axiom02 a owl:Axiom ;
+    owl:annotatedProperty gs:usesGuide ;
+    owl:annotatedSource gs:cleavage01 ;
+    owl:annotatedTarget gs:guide ;
+    gs:claimBasis "schematic biological interpretation; not experimental verification" .
+
+gs:axiom03 a owl:Axiom ;
+    owl:annotatedProperty gs:hasTarget ;
+    owl:annotatedSource gs:cleavage01 ;
+    owl:annotatedTarget gs:target ;
+    gs:claimBasis "schematic biological interpretation; not experimental verification" .
+
+gs:axiom04 a owl:Axiom ;
+    owl:annotatedProperty gs:producesBreak ;
+    owl:annotatedSource gs:cleavage01 ;
+    owl:annotatedTarget gs:break ;
+    gs:claimBasis "schematic biological interpretation; not experimental verification" .
+
+gs:axiom05 a owl:Axiom ;
+    owl:annotatedProperty gs:hasPAM ;
+    owl:annotatedSource gs:target ;
+    owl:annotatedTarget gs:pam ;
+    gs:claimBasis "schematic biological interpretation; not experimental verification" .
+
+gs:axiom06 a owl:Axiom ;
+    owl:annotatedProperty gs:usesTemplate ;
+    owl:annotatedSource gs:repair01 ;
+    owl:annotatedTarget gs:donor ;
+    gs:claimBasis "schematic biological interpretation; not experimental verification" .
+
+gs:axiom07 a owl:Axiom ;
+    owl:annotatedProperty gs:repairs ;
+    owl:annotatedSource gs:repair01 ;
+    owl:annotatedTarget gs:break ;
+    gs:claimBasis "schematic biological interpretation; not experimental verification" .
+
+gs:chromosome a owl:DatatypeProperty .
+
+gs:claimBasis a owl:DatatypeProperty .
+
+gs:coordinateConvention a owl:DatatypeProperty .
+
+gs:denotes a owl:ObjectProperty .
+
+gs:depicts a owl:ObjectProperty .
+
+gs:derivedFrom a owl:ObjectProperty .
+
+gs:evidenceStatus a owl:DatatypeProperty .
+
+gs:exampleProposal a gs:ProposedEdit ;
+    gs:requiresReview gs:requiredReview ;
+    gs:reviewStatus "review_required_not_approved" .
+
+gs:feedsLayer a owl:ObjectProperty .
+
+gs:hasLocation a owl:ObjectProperty .
+
+gs:ingestionLayer a gs:ArchitectureLayer ;
+    gs:feedsLayer gs:mappingLayer ;
+    gs:layerFunction "Preserve source observations" .
+
+gs:label01 a gs:LabelObservation ;
+    gs:denotes gs:cas9 ;
+    gs:derivedFrom gs:image01 ;
+    gs:visibleText "Cas9 Protein" .
+
+gs:label02 a gs:LabelObservation ;
+    gs:denotes gs:guide ;
+    gs:derivedFrom gs:image01 ;
+    gs:visibleText "Guide RNA" .
+
+gs:label03 a gs:LabelObservation ;
+    gs:denotes gs:target ;
+    gs:derivedFrom gs:image01 ;
+    gs:visibleText "Target DNA" .
+
+gs:label04 a gs:LabelObservation ;
+    gs:denotes gs:target ;
+    gs:derivedFrom gs:image01 ;
+    gs:visibleText "Target DNA" .
+
+gs:label05 a gs:LabelObservation ;
+    gs:denotes gs:break ;
+    gs:derivedFrom gs:image01 ;
+    gs:visibleText "Double-Strand Break" .
+
+gs:label06 a gs:LabelObservation ;
+    gs:denotes gs:pam ;
+    gs:derivedFrom gs:image01 ;
+    gs:visibleText "PAM Sequence" .
+
+gs:label07 a gs:LabelObservation ;
+    gs:denotes gs:donor ;
+    gs:derivedFrom gs:image01 ;
+    gs:visibleText "Donor DNA" .
+
+gs:layerFunction a owl:DatatypeProperty .
+
+gs:mapsGene a owl:ObjectProperty .
+
+gs:relativeToAssembly a owl:ObjectProperty .
+
+gs:requiresReview a owl:ObjectProperty .
+
+gs:reviewStatus a owl:DatatypeProperty .
+
+gs:sequence a owl:DatatypeProperty .
+
+gs:sourceLocator a owl:DatatypeProperty .
+
+gs:visibleText a owl:DatatypeProperty .
+
+gs:Cas9Protein a owl:Class ;
+    rdfs:subClassOf gs:Protein .
+
+gs:CleavageEvent a owl:Class .
+
+gs:DonorDNA a owl:Class ;
+    rdfs:subClassOf gs:DNA .
+
+gs:DoubleStrandBreak a owl:Class ;
+    rdfs:subClassOf gs:BiologicalEntity .
+
+gs:GuideRNA a owl:Class ;
+    rdfs:subClassOf gs:RNA .
+
+gs:PAMSequence a owl:Class ;
+    rdfs:subClassOf gs:BiologicalEntity .
+
+gs:ProposedEdit a owl:Class .
+
+gs:Protein a owl:Class ;
+    rdfs:subClassOf gs:BiologicalEntity .
+
+gs:RNA a owl:Class ;
+    rdfs:subClassOf gs:BiologicalEntity .
+
+gs:RepairProcess a owl:Class .
+
+gs:ReviewRecord a owl:Class .
+
+gs:SourceImage a owl:Class .
+
+gs:TargetDNA a owl:Class ;
+    rdfs:subClassOf gs:DNA .
+
+gs:analysisLayer a gs:ArchitectureLayer ;
+    gs:feedsLayer gs:reviewLayer ;
+    gs:layerFunction "Record hypotheses and assessments" .
+
+gs:auditLayer a gs:ArchitectureLayer ;
+    gs:layerFunction "Archive decisions and validated outcomes" .
+
+gs:hasPAM a owl:ObjectProperty .
+
+gs:hasTarget a owl:ObjectProperty .
+
+gs:knowledgeLayer a gs:ArchitectureLayer ;
+    gs:feedsLayer gs:analysisLayer ;
+    gs:layerFunction "Manage provenance and RDF claims" .
+
+gs:mappingLayer a gs:ArchitectureLayer ;
+    gs:feedsLayer gs:knowledgeLayer ;
+    gs:layerFunction "Accept externally supplied mapping records" .
+
+gs:producesBreak a owl:ObjectProperty .
+
+gs:repairs a owl:ObjectProperty .
+
+gs:requiredReview a gs:ReviewRecord .
+
+gs:reviewLayer a gs:ArchitectureLayer ;
+    gs:feedsLayer gs:auditLayer ;
+    gs:layerFunction "Request authorized human review" .
+
+gs:usesGuide a owl:ObjectProperty .
+
+gs:usesNuclease a owl:ObjectProperty .
+
+gs:usesTemplate a owl:ObjectProperty .
+
+gs:repair01 a gs:RepairProcess ;
+    gs:evidenceStatus "conceptual possibility, not confirmed outcome" ;
+    gs:repairs gs:break ;
+    gs:usesTemplate gs:donor .
+
+gs:DNA a owl:Class ;
+    rdfs:subClassOf gs:BiologicalEntity .
+
+gs:cas9 a gs:Cas9Protein ;
+    gs:evidenceStatus "depicted schematic entity" .
+
+gs:cleavage01 a gs:CleavageEvent ;
+    gs:hasTarget gs:target ;
+    gs:producesBreak gs:break ;
+    gs:usesGuide gs:guide ;
+    gs:usesNuclease gs:cas9 .
+
+gs:donor a gs:DonorDNA ;
+    gs:evidenceStatus "depicted schematic entity" .
+
+gs:guide a gs:GuideRNA ;
+    gs:evidenceStatus "depicted schematic entity" .
+
+gs:pam a gs:PAMSequence ;
+    gs:evidenceStatus "depicted schematic entity" .
+
+gs:BiologicalEntity a owl:Class .
+
+gs:ArchitectureLayer a owl:Class .
+
+gs:break a gs:DoubleStrandBreak ;
+    gs:evidenceStatus "depicted schematic entity" .
+
+gs:target a gs:TargetDNA ;
+    gs:evidenceStatus "depicted schematic entity" ;
+    gs:hasPAM gs:pam .
+
+gs:LabelObservation a owl:Class .
+
+gs:image01 a gs:SourceImage ;
+    gs:depicts gs:break,
+        gs:cas9,
+        gs:donor,
+        gs:guide,
+        gs:pam,
+        gs:target ;
+    gs:sourceLocator "IMG_2712.jpeg (user-described image; original OWL not provided)" .
+

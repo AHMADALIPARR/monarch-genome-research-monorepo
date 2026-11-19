@@ -1,0 +1,5 @@
+PREFIX gc: <https://example.org/genome-cognition#>
+SELECT ?study WHERE {
+  ?study a gc:ApprovedStudy .
+  FILTER NOT EXISTS { ?study gc:hasConsentRecord ?consent }
+}

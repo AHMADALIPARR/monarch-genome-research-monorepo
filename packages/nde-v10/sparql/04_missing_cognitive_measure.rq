@@ -1,0 +1,2 @@
+PREFIX nde: <https://example.org/nde-research#>
+SELECT ?study WHERE { ?study a nde:NDEStudy. FILTER NOT EXISTS { ?study nde:hasCognitiveAssessment ?assessment. ?assessment a nde:CognitiveAssessment. } } ORDER BY ?study

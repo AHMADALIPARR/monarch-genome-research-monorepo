@@ -1,0 +1,6 @@
+PREFIX gc: <https://example.org/genome-cognition#>
+SELECT ?measurement ?value ?source WHERE {
+  ?measurement a gc:CognitiveObservation ;
+               gc:hasValue ?value ;
+               gc:hasObservationSource ?source .
+}

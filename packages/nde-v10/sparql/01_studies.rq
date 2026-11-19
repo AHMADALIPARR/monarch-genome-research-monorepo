@@ -1,7 +1,8 @@
-PREFIX nde: <https://example.org/nde#>
+PREFIX nde: <https://example.org/nde-research#>
 SELECT ?study ?year ?n ?url WHERE {
-  ?study a nde:Study ;
-         nde:year ?year ;
-         nde:sampleSize ?n ;
-         nde:sourceURL ?url .
+  ?study a nde:NDEStudy ;
+         nde:studyYear ?year ;
+         nde:hasSource ?src .
+  ?src nde:sourceURL ?url .
+  OPTIONAL { ?study nde:sampleSize ?n }
 }

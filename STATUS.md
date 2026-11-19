@@ -3,6 +3,16 @@
 Verification scope and known limits. Plain facts; what was run, on what,
 and what is not covered.
 
+## How the repo got complete (2026-11-18)
+
+Grok pushed 6 fragment repos to GitHub, but the GitHub copies were
+incomplete — Grok never pushed the ontologies, the chronology Lean file,
+the NDE test, the historical facts, or most of the SPARQL queries. The
+owner supplied the 9 original source bundles as zip files. Those zips are
+the ground truth. The missing files were folded in from them (40 files),
+and the content was verified by execution. The GitHub fragment repos were
+deleted after the fold-in; the zips are the surviving source.
+
 ## Verified by execution (this VM, 2026-11-18)
 
 Run with `make check`. All runnable checks pass; absent tools are
@@ -12,46 +22,50 @@ reported as SKIP, not hidden.
   `packages/torus-chronology/src/monarch_torus_sim.c` compiles and runs,
   exit 0, and prints its CSV table (header plus baseline / modeled_impact /
   modeled_recovery rows).
-- **Lean 4 — 3 files.** `lean` 4.12.0 (elan). The three files typecheck
-  with 0 errors and import nothing, so plain `lean` suffices (no Mathlib
-  project needed):
+- **Lean 4 — 3 standalone files.** `lean` 4.12.0 (elan). The three files
+  typecheck with 0 errors and import nothing, so plain `lean` suffices
+  (no Mathlib project needed):
   `packages/hermetic-graph/lean/HermeticGraphBridge.lean`,
   `packages/genome-cognition/lean/GenomeCognitionBridge.lean`,
   `packages/nde-v10/lean/NearDeathCognition.lean`.
-- **SWI-Prolog — 7 files.** `swipl` 9.0.4. Every `.pl` file consult-loads
-  with no ERROR output. The post-recovery plunit suite passes 10/10
-  (`packages/post-recovery/src/test_monarch_post_recovery.pl`). The GCP
-  goal `well_formed(0)` succeeds.
-- **Python — SPARQL runner.** `python3` 3.12.3 with `rdflib` 7.6.0.
-  `packages/genome-stack/query.py list` runs and lists the two SPARQL
-  queries. A real query is not runnable (see below).
+- **SWI-Prolog — 9 files.** `swipl` 9.0.4. Every `.pl` file consult-loads
+  with no ERROR output. The post-recovery plunit suite passes 10/10 and
+  the genome-cognition plunit suite passes. The GCP goal
+  `well_formed(0)` succeeds. The torus evidence predicates resolve:
+  `source_supported('S001')` succeeds against the historical facts,
+  `reported_association('S001', drug_exposure, textual_mention_only)`
+  succeeds, and `correlation_ready('S001')` fails cleanly (by design —
+  no paired, calibrated clinical scores exist).
+- **Python — SPARQL suites.** `python3` 3.12.3 with `rdflib` 7.6.0.
+  The genome-stack suite passes 20/20 (`test_queries.py`), the NDE suite
+  passes 5/5 plus the sampleSize assertion (`test_nde.py`), and the
+  genome-cognition validator passes (`validate.py`). `query.py` runs real
+  queries against `genome_stack.ttl` and returns rows.
 
-## Known limits (not covered by `make check`)
+## Repairs made during the fold-in (source files are verbatim from the
+## owner's zips; only the integration points below were changed)
 
-- **Genome-stack ontology is missing.** `packages/genome-stack/query.py`
-  defaults to `packages/genome-stack/genome_stack.ttl`, which is not in
-  this repo. A real SPARQL query fails at the ontology parse. Only
-  `query.py list` is runnable. The ontology file was never pushed; it is
-  not reconstructed here.
-- **Torus evidence predicates error at runtime.**
-  `packages/torus-chronology/src/monarch_torus_analysis.pl` defines
-  `source_supported/1`, `correlation_ready/1`, and `reported_association/3`,
-  but they call `historical_case/5` and `case_effect/3`, which were never
-  defined — no fact loader for them was written. Calling any of the three
-  raises `existence_error(procedure, historical_case/5)` (or `case_effect/3`).
-  The module's math predicates (`torus_angle`, `torus_distance`,
-  `entropy_bits`, `mixture_entropy`, `entropy_bound`, `example_checks`)
-  all work. The two undefined names were removed from the module's export
-  list so it no longer promises what it lacks.
-- **CBQN not run here.** `bqn` is not installed on this VM, so
-  `packages/hermetic-graph/bqn/HermeticGraph.bqn` was not executed.
-  `make check` reports it as SKIP. The Lean counterpart
-  (`HermeticGraphBridge.lean`) typechecks.
-- **Two files the old README named do not exist.**
-  `packages/nde-v10/test_nde.py` and
-  `packages/torus-chronology/lean/NewtonPyramidChronology.lean` were
-  referenced by the README but were never in the repo. The references were
-  removed; the files were not invented.
+- **Historical facts wired in.** `packages/torus-chronology/src/monarch_historical_facts.pl`
+  (22 `historical_case/5` facts, 28 `case_effect/3` facts) was in the
+  zips but never pushed to GitHub, so the torus evidence predicates
+  errored. It now lives in `torus-chronology/src/` and is imported by
+  `monarch_torus_analysis.pl`. Two lines were added to the facts file
+  (`:- encoding(utf8).` and the `:- module(...)` header) so it loads
+  cleanly as a module; the facts themselves are verbatim. The two
+  predicate names were restored to the analysis module's export list.
+- **Three SPARQL queries fixed to match their ontologies.**
+  `genome-stack/sparql/01_visible_labels.rq` asked for `rdfs:label`,
+  which no triple uses; it now asks for `gs:visibleText` on
+  `gs:LabelObservation` (7 rows). `genome-stack/sparql/02_depicted_entities.rq`
+  listed every typed entity (31 rows); it now selects the entities
+  `gs:image01` depicts (6 rows). `nde-v10/sparql/01_studies.rq` used the
+  wrong namespace (`nde#` instead of `nde-research#`), the wrong class
+  (`Study` instead of `NDEStudy`), and the wrong property (`year` instead
+  of `studyYear`), and it asked for `sourceURL` on the study where it
+  lives on the source document; it now joins through `nde:hasSource` and
+  makes `sampleSize` OPTIONAL (one study has none), returning 4 rows.
+  The other 26 SPARQL queries were already correct against their
+  ontologies and were not changed.
 - **Claims export predicates.** `packages/claims-corpus/src/monarch_claims.pl`
   declared `export_claims/1`, `export_source_clusters/1`,
   `export_shared_sources/1`, and `run/0` in its export list, but none of
@@ -64,6 +78,24 @@ reported as SKIP, not hidden.
   uses `begin_tests`/`end_tests`/`run_tests` but never imported the plunit
   library, so the suite could not run at all. `:- use_module(library(plunit)).`
   was added at the top. The suite now runs and passes 10/10.
+
+## Known limits (not covered by `make check`)
+
+- **NewtonPyramidChronology.lean needs Mathlib.**
+  `packages/torus-chronology/lean/NewtonPyramidChronology.lean` imports
+  `Mathlib.Data.Real.Basic`, `Mathlib.Topology.MetricSpace.Basic`, and
+  `Mathlib.Tactic.Linarith`, so it needs a lake project with Mathlib to
+  typecheck. It is present in the repo (folded in from the owner's zips)
+  but has not been typechecked on this VM yet. It is NOT covered by
+  `make check`'s plain-`lean` step.
+- **CBQN not run here.** `bqn` is not installed on this VM, so
+  `packages/hermetic-graph/bqn/HermeticGraph.bqn` was not executed.
+  `make check` reports it as SKIP. The Lean counterpart
+  (`HermeticGraphBridge.lean`) typechecks.
+- **`torus_synthetic_trace.csv` is a build artifact.** The sim writes it
+  to the working directory when run. It is gitignored; run the sim to
+  regenerate it. The committed `torus_entropy_metrics.csv` is the
+  recorded per-phase summary.
 
 ## Toolchain versions used for the verification above
 

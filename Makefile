@@ -16,11 +16,17 @@ LEAN_FILES := packages/hermetic-graph/lean/HermeticGraphBridge.lean \
               packages/genome-cognition/lean/GenomeCognitionBridge.lean \
               packages/nde-v10/lean/NearDeathCognition.lean
 
+# packages/torus-chronology/lean/NewtonPyramidChronology.lean imports
+# Mathlib, so it needs a lake project with Mathlib to typecheck. It is
+# NOT covered by the plain-`lean` check below; see STATUS.md.
+
 PL_FILES := packages/claims-corpus/src/monarch_claims.pl \
             packages/recovery/src/monarch_recovery.pl \
             packages/post-recovery/src/monarch_post_recovery.pl \
+            packages/torus-chronology/src/monarch_historical_facts.pl \
             packages/torus-chronology/src/monarch_torus_analysis.pl \
             packages/genome-cognition/prolog/genome_cognition.pl \
+            packages/genome-cognition/prolog/test_genome_cognition.pl \
             packages/nde-v10/prolog/nde_research.pl \
             packages/gcp-import-v11/gcp_observations.pl
 
@@ -49,8 +55,9 @@ check-lean:
 
 # SWI-Prolog: every .pl file consult-loads with no ERROR output (an
 # undefined exported predicate is a failure, not a warning), the
-# post-recovery plunit suite passes, and the GCP well_formed(0) goal
-# succeeds.
+# post-recovery and genome-cognition plunit suites pass, the GCP
+# well_formed(0) goal succeeds, and the torus evidence predicates
+# resolve against the historical facts (source_supported/1).
 check-prolog:
 	@if [ -z "$(SWIPL)" ]; then echo "SKIP check-prolog: no swipl on PATH"; else \
 	  for f in $(PL_FILES); do \
@@ -58,21 +65,31 @@ check-prolog:
 	    if [ $$ec -ne 0 ]; then echo "FAIL check-prolog: $$f consult exit $$ec"; echo "$$out"; exit 1; fi; \
 	    if echo "$$out" | grep -q 'ERROR'; then echo "FAIL check-prolog: $$f consult produced ERROR:"; echo "$$out" | grep 'ERROR' | head -5; exit 1; fi; \
 	  done; \
-	  echo "PASS check-prolog: 7 Prolog files consult-load, no ERROR"; \
+	  echo "PASS check-prolog: 9 Prolog files consult-load, no ERROR"; \
 	  (cd packages/post-recovery/src && "$(SWIPL)" -q -s test_monarch_post_recovery.pl -g run_tests -t halt) || exit 1; \
 	  echo "PASS check-prolog: post-recovery plunit suite (10 tests)"; \
+	  (cd packages/genome-cognition/prolog && "$(SWIPL)" -q -s test_genome_cognition.pl -g run_tests -t halt) || exit 1; \
+	  echo "PASS check-prolog: genome-cognition plunit suite"; \
 	  "$(SWIPL)" -q -s packages/gcp-import-v11/gcp_observations.pl -g "well_formed(0), halt" -t halt || exit 1; \
 	  echo "PASS check-prolog: gcp well_formed(0)"; \
+	  "$(SWIPL)" -q -s packages/torus-chronology/src/monarch_torus_analysis.pl -g "source_supported('S001'), halt" -t halt || exit 1; \
+	  echo "PASS check-prolog: torus source_supported('S001') resolves against the facts"; \
 	fi
 
-# Python: the genome-stack SPARQL runner lists its queries (needs rdflib).
-# A real query needs packages/genome-stack/genome_stack.ttl, which is not
-# in this repo; see STATUS.md. Only the runnable part is checked here.
+# Python: the SPARQL suites run against the ontologies now in the repo
+# (genome_stack.ttl, nde_extension.ttl, genome_cognition_v9.ttl).
+# Needs rdflib.
 check-python:
 	@if [ -z "$(PYTHON)" ]; then echo "SKIP check-python: no python3 on PATH"; \
 	elif ! "$(PYTHON)" -c "import rdflib" 2>/dev/null; then echo "SKIP check-python: rdflib not installed (pip install 'rdflib>=7')"; else \
 	  "$(PYTHON)" packages/genome-stack/query.py list > /dev/null || exit 1; \
 	  echo "PASS check-python: query.py lists SPARQL queries"; \
+	  "$(PYTHON)" packages/genome-stack/test_queries.py > /dev/null || exit 1; \
+	  echo "PASS check-python: genome-stack SPARQL suite (20 queries)"; \
+	  "$(PYTHON)" packages/nde-v10/test_nde.py > /dev/null || exit 1; \
+	  echo "PASS check-python: nde SPARQL suite (5 queries + sampleSize)"; \
+	  "$(PYTHON)" packages/genome-cognition/validate.py > /dev/null || exit 1; \
+	  echo "PASS check-python: genome-cognition validate.py"; \
 	fi
 
 # CBQN: the hermetic graph witness runs.

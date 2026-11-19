@@ -1,0 +1,14 @@
+{
+  "rdf_triples": 92,
+  "sparql_row_counts": {
+    "01_studies.rq": 4,
+    "02_limitations.rq": 4,
+    "03_study_counts.rq": 4,
+    "04_missing_cognitive_measure.rq": 4,
+    "05_unattributed_claims.rq": 0
+  },
+  "tested_with": "rdflib 7.5.0",
+  "lean_tested": false,
+  "prolog_tested": false,
+  "bqn_tested": false
+}

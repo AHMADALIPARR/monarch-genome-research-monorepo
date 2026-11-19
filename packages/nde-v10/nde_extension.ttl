@@ -1,0 +1,140 @@
+@prefix nde: <https://example.org/nde-research#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+nde:CognitiveAssessment a owl:Class .
+
+nde:InterpretiveHypothesis a owl:Class .
+
+nde:NDE001 a nde:NDEStudy ;
+    rdfs:label "van Lommel et al." ;
+    nde:evidenceClass "study_summary" ;
+    nde:hasSource nde:NDE001_source ;
+    nde:investigates nde:NDE001_event ;
+    nde:limitation "reports among survivors; does not prove nonphysical consciousness" ;
+    nde:ndeReports 62 ;
+    nde:observes nde:NDE001_finding ;
+    nde:sampleSize 344 ;
+    nde:studyDesign "prospective observational cohort" ;
+    nde:studyYear 2001 .
+
+nde:NDE002 a nde:NDEStudy ;
+    rdfs:label "Parnia et al. AWARE I" ;
+    nde:evidenceClass "study_summary" ;
+    nde:hasSource nde:NDE002_source ;
+    nde:investigates nde:NDE002_event ;
+    nde:limitation "different categories of reported awareness; timing and independent verification remain difficult" ;
+    nde:observes nde:NDE002_finding ;
+    nde:studyDesign "prospective observational study" ;
+    nde:studyYear 2014 .
+
+nde:NDE003 a nde:NDEStudy ;
+    rdfs:label "Parnia et al. AWARE II" ;
+    nde:evidenceClass "study_summary" ;
+    nde:hasSource nde:NDE003_source ;
+    nde:investigates nde:NDE003_event ;
+    nde:limitation "EEG observations and recollections do not establish consciousness outside brain" ;
+    nde:observes nde:NDE003_finding ;
+    nde:sampleSize 567 ;
+    nde:studyDesign "multicenter prospective observational study" ;
+    nde:studyYear 2023 .
+
+nde:NDE004 a nde:NDEStudy ;
+    rdfs:label "Xu et al." ;
+    nde:evidenceClass "study_summary" ;
+    nde:hasSource nde:NDE004_source ;
+    nde:investigates nde:NDE004_event ;
+    nde:limitation "no direct patient NDE reports linked to measured gamma activity" ;
+    nde:observes nde:NDE004_finding ;
+    nde:sampleSize 4 ;
+    nde:studyDesign "small observational physiological study" ;
+    nde:studyYear 2023 .
+
+nde:SyntheticState a owl:Class .
+
+nde:associatedWith a owl:ObjectProperty .
+
+nde:evidenceClass a owl:DatatypeProperty .
+
+nde:hasCognitiveAssessment a owl:ObjectProperty .
+
+nde:hasInterpretation a owl:ObjectProperty .
+
+nde:hasSource a owl:ObjectProperty .
+
+nde:investigates a owl:ObjectProperty .
+
+nde:limitation a owl:DatatypeProperty .
+
+nde:measuredBy a owl:ObjectProperty .
+
+nde:ndeReports a owl:DatatypeProperty .
+
+nde:observes a owl:ObjectProperty .
+
+nde:ontology a owl:Ontology ;
+    rdfs:comment "NDE research extension; not evidence of paranormal mechanisms or genetic causes." .
+
+nde:reports a owl:ObjectProperty .
+
+nde:sampleSize a owl:DatatypeProperty .
+
+nde:sourceURL a owl:DatatypeProperty .
+
+nde:stateEntropy a owl:DatatypeProperty .
+
+nde:statePhase a owl:DatatypeProperty .
+
+nde:stateTime a owl:DatatypeProperty .
+
+nde:studyDesign a owl:DatatypeProperty .
+
+nde:studyYear a owl:DatatypeProperty .
+
+nde:NDE001_event a nde:ClinicalEvent ;
+    rdfs:label "resuscitated cardiac-arrest survivors" .
+
+nde:NDE001_finding a nde:ReportedExperience ;
+    rdfs:label "near-death experience reports" .
+
+nde:NDE001_source a nde:SourceDocument ;
+    nde:sourceURL "https://pubmed.ncbi.nlm.nih.gov/11755611/" .
+
+nde:NDE002_event a nde:ClinicalEvent ;
+    rdfs:label "cardiac-arrest survivors" .
+
+nde:NDE002_finding a nde:ReportedExperience ;
+    rdfs:label "awareness and memories during resuscitation" .
+
+nde:NDE002_source a nde:SourceDocument ;
+    nde:sourceURL "https://www.sciencedirect.com/science/article/pii/S0300957214007394" .
+
+nde:NDE003_event a nde:ClinicalEvent ;
+    rdfs:label "in-hospital cardiac arrests" .
+
+nde:NDE003_finding a nde:ReportedExperience ;
+    rdfs:label "recalled experience of death and EEG observations" .
+
+nde:NDE003_source a nde:SourceDocument ;
+    nde:sourceURL "https://pubmed.ncbi.nlm.nih.gov/37423492/" .
+
+nde:NDE004_event a nde:ClinicalEvent ;
+    rdfs:label "dying hospital patients" .
+
+nde:NDE004_finding a nde:PhysiologicalObservation ;
+    rdfs:label "gamma oscillation and connectivity observations" .
+
+nde:NDE004_source a nde:SourceDocument ;
+    nde:sourceURL "https://doi.org/10.1073/pnas.2216268120" .
+
+nde:PhysiologicalObservation a owl:Class .
+
+nde:ReportedExperience a owl:Class .
+
+nde:ClinicalEvent a owl:Class .
+
+nde:NDEStudy a owl:Class .
+
+nde:SourceDocument a owl:Class .
+

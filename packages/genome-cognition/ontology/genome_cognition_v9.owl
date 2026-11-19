@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:gc="https://example.org/genome-cognition#"
+   xmlns:gs="https://example.org/genome-stack#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="https://example.org/genome-stack#RNA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#BiologicalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#axiom07">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="https://example.org/genome-stack#repairs"/>
+    <owl:annotatedSource rdf:resource="https://example.org/genome-stack#repair01"/>
+    <owl:annotatedTarget rdf:resource="https://example.org/genome-stack#break"/>
+    <gs:claimBasis>schematic biological interpretation; not experimental verification</gs:claimBasis>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hypothesizesInfluenceOn">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#DoubleStrandBreak">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#BiologicalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#axiom05">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="https://example.org/genome-stack#hasPAM"/>
+    <owl:annotatedSource rdf:resource="https://example.org/genome-stack#target"/>
+    <owl:annotatedTarget rdf:resource="https://example.org/genome-stack#pam"/>
+    <gs:claimBasis>schematic biological interpretation; not experimental verification</gs:claimBasis>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#ObservedAssociation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#cognitionMappingHypothesis">
+    <rdf:type rdf:resource="https://example.org/genome-cognition#HypothesizedInfluence"/>
+    <gc:hasEvidenceStatus>unverified_hypothesis</gc:hasEvidenceStatus>
+    <rdfs:comment>Conceptual genome/expression/environment-to-cognition mapping, not an observed or causal molecular relationship.</rdfs:comment>
+    <gc:supportedBy rdf:resource="https://example.org/genome-cognition#imageSchematicModel"/>
+    <gc:derivedFromModel rdf:resource="https://example.org/genome-cognition#abstractCognitiveFunction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#label07">
+    <rdf:type rdf:resource="https://example.org/genome-stack#LabelObservation"/>
+    <gs:denotes rdf:resource="https://example.org/genome-stack#donor"/>
+    <gs:derivedFrom rdf:resource="https://example.org/genome-stack#image01"/>
+    <gs:visibleText>Donor DNA</gs:visibleText>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#CleavageEvent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#label04">
+    <rdf:type rdf:resource="https://example.org/genome-stack#LabelObservation"/>
+    <gs:denotes rdf:resource="https://example.org/genome-stack#target"/>
+    <gs:derivedFrom rdf:resource="https://example.org/genome-stack#image01"/>
+    <gs:visibleText>Target DNA</gs:visibleText>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#axiom01">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="https://example.org/genome-stack#usesNuclease"/>
+    <owl:annotatedSource rdf:resource="https://example.org/genome-stack#cleavage01"/>
+    <owl:annotatedTarget rdf:resource="https://example.org/genome-stack#cas9"/>
+    <gs:claimBasis>schematic biological interpretation; not experimental verification</gs:claimBasis>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#axiom06">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="https://example.org/genome-stack#usesTemplate"/>
+    <owl:annotatedSource rdf:resource="https://example.org/genome-stack#repair01"/>
+    <owl:annotatedTarget rdf:resource="https://example.org/genome-stack#donor"/>
+    <gs:claimBasis>schematic biological interpretation; not experimental verification</gs:claimBasis>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#sequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#label01">
+    <rdf:type rdf:resource="https://example.org/genome-stack#LabelObservation"/>
+    <gs:denotes rdf:resource="https://example.org/genome-stack#cas9"/>
+    <gs:derivedFrom rdf:resource="https://example.org/genome-stack#image01"/>
+    <gs:visibleText>Cas9 Protein</gs:visibleText>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#break">
+    <rdf:type rdf:resource="https://example.org/genome-stack#DoubleStrandBreak"/>
+    <gs:evidenceStatus>depicted schematic entity</gs:evidenceStatus>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#chromosome">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#label03">
+    <rdf:type rdf:resource="https://example.org/genome-stack#LabelObservation"/>
+    <gs:denotes rdf:resource="https://example.org/genome-stack#target"/>
+    <gs:derivedFrom rdf:resource="https://example.org/genome-stack#image01"/>
+    <gs:visibleText>Target DNA</gs:visibleText>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#analysisLayer">
+    <rdf:type rdf:resource="https://example.org/genome-stack#ArchitectureLayer"/>
+    <gs:feedsLayer rdf:resource="https://example.org/genome-stack#reviewLayer"/>
+    <gs:layerFunction>Record hypotheses and assessments</gs:layerFunction>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#imageSchematicModel">
+    <rdf:type rdf:resource="https://example.org/genome-cognition#EvidenceRecord"/>
+    <gc:hasEvidenceStatus>schematic_only</gc:hasEvidenceStatus>
+    <rdfs:comment>Inherited illustration observations from Genome Stack v8; these contain no identified gene or measured cognition.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#mappingLayer">
+    <rdf:type rdf:resource="https://example.org/genome-stack#ArchitectureLayer"/>
+    <gs:feedsLayer rdf:resource="https://example.org/genome-stack#knowledgeLayer"/>
+    <gs:layerFunction>Accept externally supplied mapping records</gs:layerFunction>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#cleavage01">
+    <rdf:type rdf:resource="https://example.org/genome-stack#CleavageEvent"/>
+    <gs:hasTarget rdf:resource="https://example.org/genome-stack#target"/>
+    <gs:producesBreak rdf:resource="https://example.org/genome-stack#break"/>
+    <gs:usesGuide rdf:resource="https://example.org/genome-stack#guide"/>
+    <gs:usesNuclease rdf:resource="https://example.org/genome-stack#cas9"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#axiom03">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="https://example.org/genome-stack#hasTarget"/>
+    <owl:annotatedSource rdf:resource="https://example.org/genome-stack#cleavage01"/>
+    <owl:annotatedTarget rdf:resource="https://example.org/genome-stack#target"/>
+    <gs:claimBasis>schematic biological interpretation; not experimental verification</gs:claimBasis>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#PAMSequence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#BiologicalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#DonorDNA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#DNA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#knowledgeLayer">
+    <rdf:type rdf:resource="https://example.org/genome-stack#ArchitectureLayer"/>
+    <gs:feedsLayer rdf:resource="https://example.org/genome-stack#analysisLayer"/>
+    <gs:layerFunction>Manage provenance and RDF claims</gs:layerFunction>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#axiom04">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="https://example.org/genome-stack#producesBreak"/>
+    <owl:annotatedSource rdf:resource="https://example.org/genome-stack#cleavage01"/>
+    <owl:annotatedTarget rdf:resource="https://example.org/genome-stack#break"/>
+    <gs:claimBasis>schematic biological interpretation; not experimental verification</gs:claimBasis>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#producesBreak">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasTimepoint">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#ReviewRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#repairs">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasGenomeState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#target">
+    <rdf:type rdf:resource="https://example.org/genome-stack#TargetDNA"/>
+    <gs:evidenceStatus>depicted schematic entity</gs:evidenceStatus>
+    <gs:hasPAM rdf:resource="https://example.org/genome-stack#pam"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#image01">
+    <rdf:type rdf:resource="https://example.org/genome-stack#SourceImage"/>
+    <gs:depicts rdf:resource="https://example.org/genome-stack#break"/>
+    <gs:depicts rdf:resource="https://example.org/genome-stack#cas9"/>
+    <gs:depicts rdf:resource="https://example.org/genome-stack#donor"/>
+    <gs:depicts rdf:resource="https://example.org/genome-stack#guide"/>
+    <gs:depicts rdf:resource="https://example.org/genome-stack#pam"/>
+    <gs:depicts rdf:resource="https://example.org/genome-stack#target"/>
+    <gs:sourceLocator>IMG_2712.jpeg (user-described image; original OWL not provided)</gs:sourceLocator>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#ingestionLayer">
+    <rdf:type rdf:resource="https://example.org/genome-stack#ArchitectureLayer"/>
+    <gs:feedsLayer rdf:resource="https://example.org/genome-stack#mappingLayer"/>
+    <gs:layerFunction>Preserve source observations</gs:layerFunction>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasObservationSource">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#coordinateConvention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#label06">
+    <rdf:type rdf:resource="https://example.org/genome-stack#LabelObservation"/>
+    <gs:denotes rdf:resource="https://example.org/genome-stack#pam"/>
+    <gs:derivedFrom rdf:resource="https://example.org/genome-stack#image01"/>
+    <gs:visibleText>PAM Sequence</gs:visibleText>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#reviewLayer">
+    <rdf:type rdf:resource="https://example.org/genome-stack#ArchitectureLayer"/>
+    <gs:feedsLayer rdf:resource="https://example.org/genome-stack#auditLayer"/>
+    <gs:layerFunction>Request authorized human review</gs:layerFunction>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#GuideRNA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#RNA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#ApprovedStudy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#feedsLayer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#Cas9Protein">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#Protein"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#Protein">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#BiologicalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#hasPAM">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#requiredReview">
+    <rdf:type rdf:resource="https://example.org/genome-stack#ReviewRecord"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#exampleProposal">
+    <rdf:type rdf:resource="https://example.org/genome-stack#ProposedEdit"/>
+    <gs:requiresReview rdf:resource="https://example.org/genome-stack#requiredReview"/>
+    <gs:reviewStatus>review_required_not_approved</gs:reviewStatus>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#TargetDNA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#DNA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#LabelObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#CognitiveState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#SyntheticTrace">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#Gene">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#DNA"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#label02">
+    <rdf:type rdf:resource="https://example.org/genome-stack#LabelObservation"/>
+    <gs:denotes rdf:resource="https://example.org/genome-stack#guide"/>
+    <gs:derivedFrom rdf:resource="https://example.org/genome-stack#image01"/>
+    <gs:visibleText>Guide RNA</gs:visibleText>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#repair01">
+    <rdf:type rdf:resource="https://example.org/genome-stack#RepairProcess"/>
+    <gs:evidenceStatus>conceptual possibility, not confirmed outcome</gs:evidenceStatus>
+    <gs:repairs rdf:resource="https://example.org/genome-stack#break"/>
+    <gs:usesTemplate rdf:resource="https://example.org/genome-stack#donor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#label05">
+    <rdf:type rdf:resource="https://example.org/genome-stack#LabelObservation"/>
+    <gs:denotes rdf:resource="https://example.org/genome-stack#break"/>
+    <gs:derivedFrom rdf:resource="https://example.org/genome-stack#image01"/>
+    <gs:visibleText>Double-Strand Break</gs:visibleText>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#abstractCognitiveFunction">
+    <rdf:type rdf:resource="https://example.org/genome-cognition#CognitiveFunction"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#SourceGroundedClaim">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#HypothesizedInfluence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>A proposed relation, not proof of causal effect.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasMeasurementScale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#DNA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="https://example.org/genome-stack#BiologicalEntity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#axiom02">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Axiom"/>
+    <owl:annotatedProperty rdf:resource="https://example.org/genome-stack#usesGuide"/>
+    <owl:annotatedSource rdf:resource="https://example.org/genome-stack#cleavage01"/>
+    <owl:annotatedTarget rdf:resource="https://example.org/genome-stack#guide"/>
+    <gs:claimBasis>schematic biological interpretation; not experimental verification</gs:claimBasis>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#pam">
+    <rdf:type rdf:resource="https://example.org/genome-stack#PAMSequence"/>
+    <gs:evidenceStatus>depicted schematic entity</gs:evidenceStatus>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#supportedBy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#BiologicalEntity">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#SourceImage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#Intervention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#visibleText">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasBiologicalObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#ReferenceAssembly">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#donor">
+    <rdf:type rdf:resource="https://example.org/genome-stack#DonorDNA"/>
+    <gs:evidenceStatus>depicted schematic entity</gs:evidenceStatus>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#CognitiveFunction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Abstract mapping from a biological and environmental state to a cognitive observation distribution; no parameters or causal effects inferred from a schematic.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#guide">
+    <rdf:type rdf:resource="https://example.org/genome-stack#GuideRNA"/>
+    <gs:evidenceStatus>depicted schematic entity</gs:evidenceStatus>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#auditLayer">
+    <rdf:type rdf:resource="https://example.org/genome-stack#ArchitectureLayer"/>
+    <gs:layerFunction>Archive decisions and validated outcomes</gs:layerFunction>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#ArchitectureLayer">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#claimBasis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#EvidenceClaim">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#denotes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#hasTarget">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#GenomeState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasExpressionState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#cas9">
+    <rdf:type rdf:resource="https://example.org/genome-stack#Cas9Protein"/>
+    <gs:evidenceStatus>depicted schematic entity</gs:evidenceStatus>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#derivedFrom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#usesNuclease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#Observation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#derivedFromModel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasCognitiveObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#mapsGene">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#layerFunction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#depicts">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#reviewStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#evidenceStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#ReviewDecision">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#usesGuide">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasCognitiveState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#RepairProcess">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#relativeToAssembly">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#GenomicLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasGeneIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#requiresReview">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#GeneExpressionState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasEvidenceStatus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#BiologicalInterpretation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#usesTemplate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#BiologicalObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#hasConsentRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#sourceLocator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#ProposedEdit">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#CognitiveObservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#hasLocation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-cognition#EvidenceRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://example.org/genome-stack#MappingRecord">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+</rdf:RDF>

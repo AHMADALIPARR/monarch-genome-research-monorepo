@@ -46,13 +46,16 @@ make check
 
 - **C** — the torus simulation compiles (`gcc -O2 -std=c11`) and runs.
 - **Lean 4** — the three standalone files typecheck (`lean`, no imports,
-  no Mathlib project needed).
-- **SWI-Prolog** — all seven `.pl` files consult-load with no ERROR, the
-  post-recovery plunit suite passes 10/10, and the GCP `well_formed(0)`
-  goal succeeds.
-- **Python** — the genome-stack SPARQL runner lists its queries
-  (needs `rdflib>=7`). A real query needs `packages/genome-stack/genome_stack.ttl`,
-  which is not in this repo; see STATUS.md.
+  no Mathlib project needed). A fourth Lean file,
+  `packages/torus-chronology/lean/NewtonPyramidChronology.lean`, imports
+  Mathlib and needs a lake project to typecheck; see STATUS.md.
+- **SWI-Prolog** — all nine `.pl` files consult-load with no ERROR, the
+  post-recovery plunit suite passes 10/10, the genome-cognition plunit
+  suite passes, the GCP `well_formed(0)` goal succeeds, and the torus
+  evidence predicates resolve against the historical facts.
+- **Python** — the SPARQL suites run against the ontologies now in the
+  repo (needs `rdflib>=7`): the genome-stack suite passes 20/20, the
+  NDE suite passes 5/5, and the genome-cognition validator passes.
 - **CBQN** — the hermetic graph witness runs when `bqn` is installed.
 
 Individual targets: `make check-c`, `make check-lean`, `make check-prolog`,
@@ -127,16 +130,16 @@ Deprogramming and memory-verification claims stay in a separate table. Self-publ
 Observational traces record consent, coercion, recall pressure, and ordinal self-report scores together with an independent-corroboration flag. The process invariant requires consent and the absence of coercion and pressure. Cognition may fluctuate. Proof requires verified independent corroboration. Scores are not validated clinical instruments.
 
 ### Torus Simulation and Entropy
-Deterministic C code integrates agency and distress changes into angles on a flat 2-torus, builds occupancy histograms, and computes Shannon entropy. The "throat" is an analysis region of the flat torus, not a wormhole. All output is labeled synthetic. Prolog reimplements distances and entropy bounds and refuses correlation without calibrated scores.
+Deterministic C code integrates agency and distress changes into angles on a flat 2-torus, builds occupancy histograms, and computes Shannon entropy. The "throat" is an analysis region of the flat torus, not a wormhole. All output is labeled synthetic. Prolog reimplements distances and entropy bounds and refuses correlation without calibrated scores. The historical facts (`monarch_historical_facts.pl`, 22 cases and 28 effect links) are wired into the analysis module, so the source-link predicates (`source_supported/1`, `reported_association/3`) resolve.
 
 ### Chronology Predicates
-Lean defines a sovereign theta, a chronological state, and a closure predicate. Refined structures make an epoch-anchor flag explicit. Dated arithmetic (800 + 1260 = 2060) is proved by decision procedures. Historical interpretations remain external hypotheses.
+Lean defines a sovereign theta, a chronological state, and a closure predicate. Refined structures make an epoch-anchor flag explicit. Dated arithmetic (800 + 1260 = 2060) is proved by decision procedures. Historical interpretations remain external hypotheses. The chronology Lean file `packages/torus-chronology/lean/NewtonPyramidChronology.lean` imports Mathlib and needs a lake project to typecheck; see STATUS.md.
 
 ### Hermetic Graph Recursion
 Adjacency swaps vertices; a diagonal operator labels them 89 and 2462. Commutator on (1, 0) is (0, -2373). Orbit has period 2. Implemented in Lean (proved) and BQN (asserted). Purely algebraic.
 
 ### Genome Stack Query Engine
-Reconstructed CRISPR schematic ontology under a fixed example namespace. Python runner accepts only SELECT/ASK and rejects updates and remote SERVICE. Numbered SPARQL queries cover labels, cleavage, repair, architecture, and missing records. No gene sequences or confirmed edits. The ontology file `genome_stack.ttl` is not in this repo, so a real query cannot run until it is added; `query.py list` works without it.
+Reconstructed CRISPR schematic ontology under a fixed example namespace. Python runner accepts only SELECT/ASK and rejects updates and remote SERVICE. Numbered SPARQL queries cover labels, cleavage, repair, architecture, and missing records. No gene sequences or confirmed edits. The ontology file `genome_stack.ttl` is in this repo and all 20 SPARQL queries run against it (`python3 packages/genome-stack/test_queries.py`).
 
 ### Genome-Cognition Bridge
 Loads the genome-stack ontology unchanged and extends it. Cognitive phenotype is the abstract conditional P(C_(t+1) | G_t, E_t, X_t, C_t). Hypotheses are unverified; bases are schematic-only. Lean shows genome identity need not preserve cognition. Prolog refuses causal conclusions.

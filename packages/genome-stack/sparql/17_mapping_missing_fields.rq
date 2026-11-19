@@ -1,0 +1,6 @@
+PREFIX gs:   <https://example.org/genome-stack#>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+SELECT ?mapping ?location ?missingField WHERE { ?mapping a gs:MappingRecord ; gs:hasLocation ?location . VALUES (?property ?missingField) { (gs:relativeToAssembly "reference assembly") (gs:chromosome "chromosome") (gs:coordinateConvention "coordinate convention") } FILTER NOT EXISTS { ?location ?property ?value . } } ORDER BY ?mapping ?missingField

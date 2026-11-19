@@ -1,0 +1,29 @@
+story_id,association,relationship,source_url,evidence_status
+S001,drug_exposure,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented program/planning
+S001,hypnosis,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented program/planning
+S001,coercive_context,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented program/planning
+S002,drug_exposure,textual_mention_only,https://nsarchive.gwu.edu/media/33966/ocr,Documented program; specifics disputed
+S002,coercive_context,textual_mention_only,https://nsarchive.gwu.edu/media/33966/ocr,Documented program; specifics disputed
+S003,memory_or_amnesia,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented report; outcome self-reported
+S003,drug_exposure,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented report; outcome self-reported
+S003,hypnosis,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented report; outcome self-reported
+S003,coercive_context,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented report; outcome self-reported
+S005,drug_exposure,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented core event
+S007,drug_exposure,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2025-10-30/top-secret-testimony-cias-mkultra-chief-50-years-later,Documented operation
+S007,coercive_context,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2025-10-30/top-secret-testimony-cias-mkultra-chief-50-years-later,Documented operation
+S008,drug_exposure,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2025-10-30/top-secret-testimony-cias-mkultra-chief-50-years-later,Documented operation
+S008,coercive_context,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2025-10-30/top-secret-testimony-cias-mkultra-chief-50-years-later,Documented operation
+S009,drug_exposure,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented proposal or arrangement
+S010,distress_or_harm,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented funding and patient harms
+S010,electroshock,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2024-12-23/cia-behavior-control-experiments-focus-new-scholarly,Documented funding and patient harms
+S012,memory_or_amnesia,textual_mention_only,https://madnesscanada.com/wp-content/uploads/2020/01/SR-Linda-chapter.pdf,First-person account; program connection contextual
+S012,distress_or_harm,textual_mention_only,https://madnesscanada.com/wp-content/uploads/2020/01/SR-Linda-chapter.pdf,First-person account; program connection contextual
+S013,distress_or_harm,textual_mention_only,https://www.wbur.org/endlessthread/2020/04/24/madness-part-one-the-sleep-room,First-person account
+S016,coercive_context,textual_mention_only,https://www.intelligence.senate.gov/1977/08/03/hearings-joint-hearing-subcommittee-health-and-scientific-research-committee-human-resources-project/,Documented hearing
+S017,coercive_context,textual_mention_only,https://nsarchive.gwu.edu/briefing-book/dnsa-intelligence/2025-10-30/top-secret-testimony-cias-mkultra-chief-50-years-later,Documented testimony
+S018,distress_or_harm,textual_mention_only,https://books.google.com/books/about/Trance_Formation_of_America.html?id=WntjswEACAAJ,Published claim; program unverified
+S019,coercive_context,textual_mention_only,https://fightingmonarch.com/wp-content/uploads/2018/06/thanks-for-the-memories.pdf,Published claim; program unverified
+S020,distress_or_harm,textual_mention_only,https://link.springer.com/chapter/10.1007/978-3-031-41850-1_3,Published academic discussion; underlying program unverified
+S022,drug_exposure,textual_mention_only,https://nsarchive.gwu.edu/media/33966/ocr,Documented historical concern; alleged enemy methods unproven
+S022,hypnosis,textual_mention_only,https://nsarchive.gwu.edu/media/33966/ocr,Documented historical concern; alleged enemy methods unproven
+S022,coercive_context,textual_mention_only,https://nsarchive.gwu.edu/media/33966/ocr,Documented historical concern; alleged enemy methods unproven

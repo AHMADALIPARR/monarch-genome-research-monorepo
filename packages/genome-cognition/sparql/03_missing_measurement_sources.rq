@@ -1,0 +1,5 @@
+PREFIX gc: <https://example.org/genome-cognition#>
+SELECT ?measurement WHERE {
+  ?measurement a gc:CognitiveObservation .
+  FILTER NOT EXISTS { ?measurement gc:hasObservationSource ?source }
+}

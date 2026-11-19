@@ -1,0 +1,2 @@
+PREFIX nde: <https://example.org/nde-research#>
+SELECT ?study ?limit WHERE { ?study a nde:NDEStudy; nde:limitation ?limit. } ORDER BY ?study

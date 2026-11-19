@@ -1,0 +1,2 @@
+PREFIX nde: <https://example.org/nde-research#>
+SELECT ?study ?n ?reported WHERE { ?study a nde:NDEStudy. OPTIONAL { ?study nde:sampleSize ?n } OPTIONAL { ?study nde:ndeReports ?reported } } ORDER BY ?study

@@ -1,0 +1,6 @@
+PREFIX gs:   <https://example.org/genome-stack#>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+
+SELECT ?cleavage ?target ?break ?repair ?donor WHERE { ?cleavage a gs:CleavageEvent ; gs:hasTarget ?target ; gs:producesBreak ?break . ?repair a gs:RepairProcess ; gs:repairs ?break ; gs:usesTemplate ?donor . }
