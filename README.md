@@ -9,6 +9,47 @@ Production monorepo for a provenance-first research pipeline. It moves from hist
 
 **License:** GNU Affero General Public License v3.0 (see [LICENSE](LICENSE))
 
+## Photos — rendered from the repo's own data
+
+The torus simulation's recorded output, plotted from
+`packages/torus-chronology/data/torus_synthetic_trace.csv` and
+`torus_entropy_metrics.csv` (36 synthetic steps, 12 per phase).
+All output is labeled synthetic.
+
+![Torus trajectory — 36 synthetic steps on the flat 2-torus](docs/images/torus_trajectory.png)
+
+![Torus occupancy — 8x8 bins per phase](docs/images/torus_occupancy.png)
+
+![Recorded torus metrics per phase](docs/images/entropy_metrics.png)
+
+## Benchmarks — measured by execution on this VM (2026-11-18)
+
+Timings are wall-clock medians / single runs on the verification VM
+(~1.5 CPU, ~6 GB RAM, no GPU). No number here is estimated.
+
+| Check | Result | Time |
+|---|---|---|
+| C torus sim (20 runs) | compiles, runs, regenerates trace + metrics byte-identically | median **4.1 ms** |
+| Lean 4, 3 standalone files | typecheck, 0 errors | **2.9 s** |
+| SWI-Prolog, 9 files | consult-load, no ERROR | — |
+| Post-recovery plunit suite | **10/10** tests pass | **0.32 s** |
+| Genome-cognition plunit suite | **5/5** tests pass | **0.59 s** |
+| GCP `well_formed(0)` | succeeds | — |
+| Torus `source_supported('S001')` | succeeds against the facts | — |
+| Genome-stack SPARQL suite | **20/20** queries pass | **3.0 s** |
+| NDE SPARQL suite | **5/5** queries pass + sampleSize check | **1.6 s** |
+| Genome-cognition validator | passes (7 labels, 6 entities, 0 measured cognition) | **1.8 s** |
+| Full `make check` | all runnable checks pass | **7.6 s** |
+
+Repo scale: **91 files**, **1,003 lines** of Prolog / C / Python / Lean /
+BQN / SPARQL, **477 RDF triples** (genome-stack 173, NDE 92,
+genome-cognition 212), **29 SPARQL queries**, **4 Lean files**,
+**10 Prolog files**, **22 historical cases + 28 effect links**,
+**22 seed stories**. Recorded torus metrics: baseline entropy
+1.281 bits / mean distance 0.280 rad, modeled impact 1.500 bits /
+3.500 rad (throat fraction 0.25), modeled recovery 1.918 bits /
+1.582 rad. Shannon bound 0 ≤ H ≤ 6 bits holds.
+
 ## Repository layout
 
 ```
